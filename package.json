@@ -1,0 +1,33 @@
+{
+  "name": "kopernio-logger",
+  "version": "1.0.0",
+  "description": "kopernio logger",
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "nodemon -e ts --exec \"npm run start\"",
+    "start": "rm -rf build && tsc && node build/index.js",
+    "linty": "tslint --project tsconfig.json --config tslint.json \"src/**/*.ts\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/colors": "^1.2.1",
+    "@types/fs-extra-promise": "^1.0.8",
+    "@types/lodash": "^4.14.136",
+    "@types/module-alias": "^2.0.0",
+    "@types/node": "^12.7.2",
+    "@types/node-emoji": "^1.8.1",
+    "module-alias": "^2.2.1",
+    "nodemon": "^1.19.1",
+    "tslint": "^5.18.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "colors": "^1.3.3",
+    "fs-extra-promise": "^1.0.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "node-emoji": "^1.10.0"
+  }
+}
