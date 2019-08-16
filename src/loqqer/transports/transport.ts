@@ -1,5 +1,6 @@
-import { Info } from 'src/loqqer/format';
-import { isAllowed, Level } from 'src/loqqer/levels';
+import { Info } from '../format';
+
+import { isAllowed, Level } from '../levels';
 
 interface TransportConfig {
   template?: (info: Info) => string;
