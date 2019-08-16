@@ -5,7 +5,8 @@
   "main": "build/index.js",
   "scripts": {
     "dev": "nodemon -e ts --exec \"npm run start\"",
-    "start": "rm -rf build && tsc && node build/index.js",
+    "build": "rm -rf build && tsc",
+    "start": "npm run build && node build/index.js",
     "linty": "tslint --project tsconfig.json --config tslint.json \"src/**/*.ts\""
   },
   "author": "",
