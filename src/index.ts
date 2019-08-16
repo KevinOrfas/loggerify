@@ -21,7 +21,7 @@ const logger = createLogger({
         format.newLine(),
         format.text('Logged from '),
         format.location(),
-        format.text(' :tada:')
+        format.text(' :tada:'),
       ),
     }),
     new transports.file({
@@ -35,7 +35,7 @@ const logger = createLogger({
         format.newLine(),
         format.text('Logged from '),
         format.location(),
-        format.text(' :tada:')
+        format.text(' :tada:'),
       ),
     }),
   ],

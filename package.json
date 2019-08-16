@@ -5,21 +5,34 @@
   "main": "build/index.js",
   "scripts": {
     "dev": "nodemon -e ts --exec \"npm run start\"",
-    "build": "rm -rf build && tsc",
-    "start": "npm run build && node build/index.js",
-    "linty": "tslint --project tsconfig.json --config tslint.json \"src/**/*.ts\""
+    "test": "jest --config jestconfig.json",
+    "prebuild": "rm -rf build",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint --project tsconfig.json --config tslint.json \"src/**/*.ts\"",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "start": "npm run build && node build/index.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/colors": "^1.2.1",
     "@types/fs-extra-promise": "^1.0.8",
+    "@types/jest": "^24.0.17",
     "@types/lodash": "^4.14.136",
     "@types/module-alias": "^2.0.0",
     "@types/node": "^12.7.2",
     "@types/node-emoji": "^1.8.1",
+    "chai": "^4.2.0",
+    "jest": "^24.9.0",
+    "mocha": "^6.2.0",
     "module-alias": "^2.2.1",
     "nodemon": "^1.19.1",
+    "ts-jest": "^24.0.2",
     "tslint": "^5.18.0",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.5.3"
@@ -31,5 +44,8 @@
     "logrocket": "^1.0.3",
     "moment": "^2.24.0",
     "node-emoji": "^1.10.0"
-  }
+  },
+  "files": [
+    "build/**/*"
+  ]
 }

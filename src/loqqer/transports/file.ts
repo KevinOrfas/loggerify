@@ -1,5 +1,5 @@
-import fs from 'fs-extra-promise';
-import _ from 'lodash';
+import fsExtraPromise from 'fs-extra-promise';
+import lodash from 'lodash';
 import { inspect } from 'util';
 
 import { createTemplate, format } from '../format';
@@ -19,22 +19,22 @@ const defaultConfig: Partial<Config> = {
     format.newLine(),
     format.location(),
     format.newLine(),
-    format.message()
+    format.message(),
   ),
 };
 
 class FileTransport extends Transport<Config> {
-  private fileStream: fs.WriteStream;
+  private fileStream: fsExtraPromise.WriteStream;
 
   public constructor(unsafeConfig: Config) {
     const config = { ...defaultConfig, ...unsafeConfig };
     super(config);
 
-    this.fileStream = fs.createWriteStream(config.path);
+    this.fileStream = fsExtraPromise.createWriteStream(config.path);
   }
 
   public format(value: any): string {
-    if (_.isObject(value)) {
+    if (lodash.isObject(value)) {
       return `\n${inspect(value, false, null, false)}\n`;
     }
 

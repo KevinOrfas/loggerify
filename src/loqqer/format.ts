@@ -1,5 +1,5 @@
 import moment from 'moment';
-import emoji from 'node-emoji';
+import nodeEmoji from 'node-emoji';
 
 interface Info {
   date: Date;
@@ -14,7 +14,7 @@ const format = {
   date: (format: string): Formatter => ({ date }) => moment(date).format(format),
   location: (): Formatter => ({ location }) => location,
   message: (): Formatter => ({ message }) => message,
-  text: (message: string): Formatter => () => emoji.emojify(message),
+  text: (message: string): Formatter => () => nodeEmoji.emojify(message),
   level: (): Formatter => ({ level }) => level.toUpperCase(),
   newLine: (): Formatter => () => '\n',
 };

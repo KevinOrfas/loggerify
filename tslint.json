@@ -2,6 +2,10 @@
   "defaultSeverity": "error",
   "extends": ["tslint-config-airbnb"],
   "jsRules": {},
-  "rules": {},
+  "rules": {
+    "align": [true, "parameters", "statements"],
+    "import-name": [false],
+    "ter-arrow-parens": true
+  },
   "rulesDirectory": []
 }

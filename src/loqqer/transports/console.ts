@@ -31,7 +31,7 @@ const defaultConfig: Partial<Config> = {
     format.newLine(),
     format.location(),
     format.newLine(),
-    format.message()
+    format.message(),
   ),
 };
 
